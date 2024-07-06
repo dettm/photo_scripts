@@ -36,7 +36,8 @@ def move_missing_photos(missing_filepaths, destination):
     """Move the missing photos to the given destination"""
 
     dest_folder = "missing_photos"
-    os.mkdir(destination + '/' + dest_folder)
+    if not os.path.exists(destination + '/' + dest_folder):
+        os.mkdir(destination + '/' + dest_folder)
 
     for filepath in missing_filepaths:
         shutil.copyfile(filepath, destination + '/' + dest_folder + '/' + filepath[len(filepath)-12:])
@@ -47,4 +48,4 @@ def move_missing_photos(missing_filepaths, destination):
 dir = "/Users/dettm/Documents/Photos"
 destination = "/Volumes/Primary"
 missing = scan_directory(dir, destination)
-move_missing_photos(missing, destination)
+# move_missing_photos(missing, destination)
