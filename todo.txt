@@ -1,0 +1,2 @@
+script to identify and delete duplicates
+I currently have duplicates in photo 1 directory, maybe elsewhere
