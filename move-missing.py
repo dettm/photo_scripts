@@ -23,8 +23,8 @@ def scan_directory(dir, destination_dir):
         if not photo[0] in dest_files:
             missing_photos += [photo]
 
-    for photo in missing_photos:
-        print(os.path.join(photo[1], photo[0]))
+    for index, photo in enumerate(missing_photos):
+        print(str(index+1) + ': ' + os.path.join(photo[1], photo[0]))
 
     print('There are ' + str(len(missing_photos)) + ' missing photos.')
 
@@ -45,7 +45,11 @@ def move_missing_photos(missing_filepaths, destination):
     print('Moved missing photos to directory: ' + destination + '/' + dest_folder)
 
 
-dir = "/Users/dettm/Documents/Photos"
-destination = "/Volumes/Primary"
+dir = "/Volumes/NIKON D810/DCIM/100ND810"
+destination = "/Users/dettm/Documents/Photos"
+# dir = "/Users/dettm/Documents/Photos"
+# destination = "/Volumes/Primary"
+
+
 missing = scan_directory(dir, destination)
 # move_missing_photos(missing, destination)
